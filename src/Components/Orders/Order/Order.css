@@ -1,7 +1,18 @@
-.orders {
-  padding: 1.25rem 5rem;
+.order {
+  padding: 40px;
+  margin: 20px 0;
+  border: 1px solid lightgray;
+  background-color: white;
+  position: relative;
 }
 
-.orders > h1 {
-  margin: 1.875rem 0;
+.order__id {
+  position: absolute;
+  top: 40px;
+  right: 20px;
+}
+
+.order__total {
+  font-weight: 500;
+  text-align: right;
 }
