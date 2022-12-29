@@ -1,6 +1,6 @@
 .order {
-  padding: 40px;
-  margin: 20px 0;
+  padding: 2.5rem;
+  margin: 1.25rem 0;
   border: 1px solid lightgray;
   background-color: white;
   position: relative;
@@ -8,8 +8,8 @@
 
 .order__id {
   position: absolute;
-  top: 40px;
-  right: 20px;
+  top: 2.5rem;
+  right: 1.25rem;
 }
 
 .order__total {
