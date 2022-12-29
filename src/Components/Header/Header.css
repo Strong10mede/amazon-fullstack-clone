@@ -1,5 +1,5 @@
 .header {
-  height: 60px;
+  height: 6;
   display: flex;
   align-items: center;
   background-color: #131921;
@@ -24,7 +24,7 @@
 
 .header__searchInput {
   height: 12px;
-  padding: 10px;
+  padding: 0.625rem;
   border: none;
   width: 100%;
 }
@@ -36,7 +36,7 @@
 }
 
 .header__optionLineOne {
-  font-size: 10px;
+  font-size: 0.625rem;
 }
 
 .header__optionLineTwo {
@@ -51,8 +51,8 @@
 }
 
 .header__basketCount {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
 }
 
 .header__nav {
@@ -63,7 +63,7 @@
 .header__option {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
   color: white;
 }
