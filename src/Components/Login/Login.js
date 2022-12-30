@@ -1,13 +1,35 @@
 import React from "react";
 import "./Login.css";
-import { auth, provider, signInWithPopup } from "../../firebase";
+import {
+  auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "../../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 function Login() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const signIn = () => {};
-  const register = () => {};
+  const signIn = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((auth) => {
+        navigate("/");
+      })
+      .catch((err) => alert(err.message));
+  };
+  const register = (e) => {
+    e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((auth) => {
+        if (auth) {
+          //it successfully created a new user with email and password
+          navigate("/");
+        }
+      })
+      .catch((err) => alert(err.message));
+  };
   return (
     <div className="login">
       <Link to="/">
