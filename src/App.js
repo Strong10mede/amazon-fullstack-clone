@@ -8,21 +8,23 @@ import Checkout from "./Components/Checkout/Checkout";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
 function App() {
+  const [{}, dispatch] = useStateValue();
   useEffect(() => {
     onAuthStateChanged(auth, (authUser) => {
       console.log("The USER is >>>", authUser);
 
       if (authUser) {
         //the user wa logged in / the user was logged in
-
-        dispatchEvent({
+        //dispatching an action
+        dispatch({
           type: "SET_USER",
           user: authUser,
         });
       } else {
         //the user logged out
-        dispatchEvent({
+        dispatch({
           type: "SET_USER",
           user: null,
         });
