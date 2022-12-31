@@ -21,12 +21,45 @@ function Payment() {
   const [clientSecret, setClientSecret] = useState(true);
   const stripe = useStripe();
   const elements = useElements();
+
+  useEffect(() => {
+    //generate  the special stripe secret which allows us to charge a customer
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: "post",
+        //stripe expects the total in a currencies subunits
+        //url value is appended in baseURL value
+        url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
+      });
+      setClientSecret(response.data.clientSecret);
+    };
+    getClientSecret();
+  }, [basket]);
+
   const handleSubmit = async (e) => {
     //do all the fancy stripe stuff...
     e.preventDefault();
     setProcessing(true);
 
-    const payload = await stripe;
+    const payload = await stripe
+      .confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: elements.getElement(CardElement),
+        },
+      })
+      .then(({ paymentIntent }) => {
+        //paymentIntent = payment confirmation
+      });
+
+    setSucceeded(true);
+    setError(null);
+    setProcessing(false);
+
+    dispatch({
+      type: "EMPTY_BASKET",
+    });
+
+    navigate("/orders", { replace: true });
   };
   const handleChange = (e) => {
     //listen for any changes in the CardElement
@@ -35,18 +68,8 @@ function Payment() {
     setError(e.error ? e.error.message : "");
   };
 
-  useEffect(() => {
-    //generate  the special stripe secret which allows us to charge a customer
-    const getClientSecret = async () => {
-      const response = await axios({
-        method: "post",
-        //stripe expects the total in a currencies subunits
-        url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
-      });
-      setClientSecret(response.data.clientSecret);
-    };
-    getClientSecret();
-  }, [basket]);
+  console.log("THE SECRET IS >>>", clientSecret);
+  console.log("👱", user);
   return (
     <div className="payment">
       <div className="payment__container">
