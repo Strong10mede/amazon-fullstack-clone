@@ -56,8 +56,10 @@ function App() {
             element={
               <>
                 <Header />
-                <Payment />
-                <Elements stripe={promise}></Elements>
+
+                <Elements stripe={promise}>
+                  <Payment />
+                </Elements>
               </>
             }
           />
