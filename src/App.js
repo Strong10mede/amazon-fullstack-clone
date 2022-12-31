@@ -56,7 +56,7 @@ function App() {
             element={
               <>
                 <Header />
-
+                {/*strip functionality binder for payment.js  */}
                 <Elements stripe={promise}>
                   <Payment />
                 </Elements>
