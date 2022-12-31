@@ -12,7 +12,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const signIn = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevent page from refresh
     signInWithEmailAndPassword(auth, email, password)
       .then((auth) => {
         navigate("/");
@@ -20,7 +20,7 @@ function Login() {
       .catch((err) => alert(err.message));
   };
   const register = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //prevent page from refresh
     createUserWithEmailAndPassword(auth, email, password)
       .then((auth) => {
         if (auth) {
