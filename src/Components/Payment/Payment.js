@@ -1,11 +1,13 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import CurrencyFormat from "react-currency-format";
 import { Link, useNavigate } from "react-router-dom";
 import { getBasketTotal } from "../../reducer";
 import { useStateValue } from "../../StateProvider";
 import CheckoutProduct from "../Checkout/CheckoutProduct/CheckoutProduct";
+import axios from "../../axios";
 import "./Payment.css";
 
 function Payment() {
@@ -32,6 +34,19 @@ function Payment() {
     setDisabled(e.empty);
     setError(e.error ? e.error.message : "");
   };
+
+  useEffect(() => {
+    //generate  the special stripe secret which allows us to charge a customer
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: "post",
+        //stripe expects the total in a currencies subunits
+        url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
+      });
+      setClientSecret(response.data.clientSecret);
+    };
+    getClientSecret();
+  }, [basket]);
   return (
     <div className="payment">
       <div className="payment__container">
