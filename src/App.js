@@ -1,5 +1,5 @@
 import "./App.css";
-import { Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Orders from "./Components/Orders/Orders";
 import Login from "./Components/Login/Login";
@@ -38,8 +38,8 @@ function App() {
     });
   }, []);
   return (
-    <div className="app">
-      <Router>
+    <BrowserRouter>
+      <div className="app">
         <Routes>
           <Route
             path="/orders"
@@ -51,12 +51,13 @@ function App() {
             }
           />
           <Route path="/login" element={<Login />} />
+          {/*strip functionality binder for payment.js  */}
+
           <Route
             path="/payment"
             element={
               <>
                 <Header />
-                {/*strip functionality binder for payment.js  */}
                 <Elements stripe={promise}>
                   <Payment />
                 </Elements>
@@ -82,8 +83,8 @@ function App() {
             }
           />
         </Routes>
-      </Router>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

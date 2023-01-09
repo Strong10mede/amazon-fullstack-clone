@@ -9,6 +9,8 @@ import { useStateValue } from "../../StateProvider";
 import CheckoutProduct from "../Checkout/CheckoutProduct/CheckoutProduct";
 import axios from "../../axios";
 import "./Payment.css";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 function Payment() {
   const [{ basket, user }, dispatch] = useStateValue();
@@ -36,6 +38,8 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
+  console.log("The Secret is >>> ", clientSecret);
+
   const handleSubmit = async (e) => {
     //do all the fancy stripe stuff...
     e.preventDefault();
@@ -47,8 +51,22 @@ function Payment() {
           card: elements.getElement(CardElement),
         },
       })
-      .then(({ paymentIntent }) => {
+      .then((result) => {
+        console.log(result);
+        alert(result.message);
         //paymentIntent = payment confirmation
+        const paymentRef = doc(
+          db,
+          "users",
+          user?.uid,
+          "orders",
+          result.paymentIntent?.id
+        );
+        setDoc(paymentRef, {
+          basket: basket,
+          amount: result.paymentIntent?.amount,
+          created: result.paymentIntent?.created,
+        });
       });
 
     setSucceeded(true);
@@ -68,7 +86,6 @@ function Payment() {
     setError(e.error ? e.error.message : "");
   };
 
-  console.log("THE SECRET IS >>>", clientSecret);
   console.log("👱", user);
   return (
     <div className="payment">
@@ -115,6 +132,7 @@ function Payment() {
         </div>
         <div className="payment__details">
           {/* Stripe magic will go */}
+          {/* any button inside form will submit form upon clicked */}
           <form onSubmit={handleSubmit}>
             <CardElement onChange={handleChange} />
             <div className="payment__priceContainer">
