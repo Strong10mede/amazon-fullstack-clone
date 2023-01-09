@@ -819,3 +819,4 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [info] i  functions: Finished "api" in ~1s {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-api"},"extension":{},"message":"Finished \"api\" in ~1s"}}
 [debug] [2023-01-09T19:54:31.338Z] [worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: IDLE"}}
 [debug] [2023-01-09T19:54:31.338Z] [work-queue] {"queueLength":0,"workRunningCount":0}
+[debug] [2023-01-09T20:38:33.516Z] File C:\Users\HP\Desktop\React App\amazon-clone\functions\package-lock.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\HP\\Desktop\\React App\\amazon-clone\\functions\\package-lock.json changed, reloading triggers"}}
