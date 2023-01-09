@@ -820,3 +820,51 @@ Issues? Report them at https://github.com/firebase/firebase-tools/issues and att
 [debug] [2023-01-09T19:54:31.338Z] [worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: IDLE"}}
 [debug] [2023-01-09T19:54:31.338Z] [work-queue] {"queueLength":0,"workRunningCount":0}
 [debug] [2023-01-09T20:38:33.516Z] File C:\Users\HP\Desktop\React App\amazon-clone\functions\package-lock.json changed, reloading triggers {"metadata":{"emulator":{"name":"functions"},"message":"File C:\\Users\\HP\\Desktop\\React App\\amazon-clone\\functions\\package-lock.json changed, reloading triggers"}}
+[debug] [2023-01-09T20:38:34.547Z] [worker-pool] Shutting down IDLE worker (us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-api)"}}
+[debug] [2023-01-09T20:38:34.547Z] [worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: FINISHING {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: FINISHING"}}
+[debug] [2023-01-09T20:38:34.550Z] [worker-pool] Shutting down IDLE worker (us-central1-api) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Shutting down IDLE worker (us-central1-api)"}}
+[debug] [2023-01-09T20:38:34.551Z] [worker-us-central1-api-4527e62a-85d2-4b1c-9cec-569272f7c126]: FINISHING {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-4527e62a-85d2-4b1c-9cec-569272f7c126]: FINISHING"}}
+[debug] [2023-01-09T20:38:34.580Z] Validating nodejs source
+[warn] !  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[warn] !  functions: Please note that there will be breaking changes when you upgrade. 
+[debug] [2023-01-09T20:38:41.845Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "firebase-admin": "^10.0.2",
+    "firebase-functions": "^3.18.0",
+    "stripe": "^8.94.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-01-09T20:38:41.845Z] Building nodejs source
+[debug] [2023-01-09T20:38:41.846Z] Analyzing nodejs backend spec
+[debug] [2023-01-09T20:38:41.857Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-01-09T20:38:41.884Z] [worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: exited {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: exited"}}
+[debug] [2023-01-09T20:38:41.884Z] [worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: FINISHED {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-5090ce20-8c44-4ee1-b805-fb019827dcbc]: FINISHED"}}
+[debug] [2023-01-09T20:38:41.884Z] [worker-us-central1-api-4527e62a-85d2-4b1c-9cec-569272f7c126]: exited {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-4527e62a-85d2-4b1c-9cec-569272f7c126]: exited"}}
+[debug] [2023-01-09T20:38:41.885Z] [worker-us-central1-api-4527e62a-85d2-4b1c-9cec-569272f7c126]: FINISHED {"metadata":{"emulator":{"name":"functions"},"message":"[worker-us-central1-api-4527e62a-85d2-4b1c-9cec-569272f7c126]: FINISHED"}}
+[debug] [2023-01-09T20:38:42.798Z] Serving at port 9005
+
+[debug] [2023-01-09T20:38:43.227Z] Got response from /__/functions.yaml {"endpoints":{"api":{"platform":"gcfv1","httpsTrigger":{},"entryPoint":"api"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-01-09T20:38:43.235Z] shutdown requested via /__/quitquitquit
+
